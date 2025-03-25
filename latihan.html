@@ -1,22 +1,108 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Pertemuan 2 HTML Dasar</title>
+    <title>Pertemuan 3 - Styling dengan CSS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #333;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        header a {
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+        }
+        main {
+            padding: 20px;
+        }
+        section {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333;
+        }
+        img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            height: auto;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-top: 10px;
+        }
+        input, select, textarea, button {
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="text"]#username {
+            background-color: lightgreen;
+        }
+        input[type="password"] {
+            background-color: lightgray;
+        }
+        input[type="reset"] {
+            background-color: purple;
+            color: white;
+            cursor: pointer;
+        }
+        input[type="reset"]:hover {
+            background-color: darkmagenta;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #333;
+            color: white;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #333;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
     <header>
         <h1><a href="https://ipwija.ac.id">Home</a></h1>
     </header>
     
-    <main id="main" class="main">
-        <p>Hi</p>
-        
+    <main>
         <section>
-            <h2>Halo world</h2>
+            <h2>Halo World</h2>
         </section>
         
         <section id="gambar">
-            <img src="https://i.pinimg.com/736x/5f/a3/37/5fa337ca7e25a852f0cad07db0904402.jpg" alt="Gambar" height="200" width="200">
+            <img src="https://i.pinimg.com/736x/5f/a3/37/5fa337ca7e25a852f0cad07db0904402.jpg" alt="Gambar" height="200">
         </section>
         
         <section>
@@ -24,19 +110,19 @@
             <form>
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" placeholder="Masukkan username">
-                <br>
+                
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" placeholder="Masukkan password">
-                <br>
+                
                 <label for="warna">Pilih Warna:</label>
                 <input type="color" id="warna" name="warna">
-                <br>
+                
                 <label for="dropdown">Pilihan Dropdown:</label>
                 <select id="dropdown" name="dropdown">
                     <option value="1">1</option>
                     <option value="2">2</option>
                 </select>
-                <br>
+                
                 <input type="reset" value="Cancel">
                 <button type="submit">Login</button>
             </form>
@@ -47,56 +133,38 @@
             <form>
                 <label for="nama">Nama:</label>
                 <input type="text" id="nama" name="nama" placeholder="Masukkan nama">
-                <br>
+                
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" placeholder="Masukkan email">
-                <br>
-                <label for="tanggal">Tanggal Lahir:</label>
+                
+                <label for="tanggal">Tanggal:</label>
                 <input type="date" id="tanggal" name="tanggal">
-                <br>
-                <label for="file">Unggah File:</label>
-                <input type="file" id="file" name="file">
-                <br>
-                <label>Jenis Kelamin:</label>
+                
+                <label for="berkas">Unggah Berkas:</label>
+                <input type="file" id="berkas" name="berkas">
+                
+                <label>Pilih Jenis Kelamin:</label>
                 <input type="radio" id="laki" name="gender" value="Laki-laki">
                 <label for="laki">Laki-laki</label>
                 <input type="radio" id="perempuan" name="gender" value="Perempuan">
                 <label for="perempuan">Perempuan</label>
-                <br>
-                <label>
-                    <input type="checkbox" id="setuju" name="setuju" value="Ya">
-                    Saya setuju dengan syarat dan ketentuan
-                </label>
-                <br>
-                <label for="search">Cari:</label>
-                <input type="search" id="search" name="search" placeholder="Cari sesuatu...">
-                <br>
+                
+                <label for="setuju">Setuju dengan syarat & ketentuan:</label>
+                <input type="checkbox" id="setuju" name="setuju">
+                
+                <label for="cari">Cari:</label>
+                <input type="search" id="cari" name="cari" placeholder="Ketik untuk mencari">
+                
                 <label for="pesan">Pesan:</label>
                 <textarea id="pesan" name="pesan" rows="4" cols="30" placeholder="Tulis pesan Anda"></textarea>
-                <br>
+                
                 <button type="submit">Kirim</button>
             </form>
         </section>
-
-        <section id="paragraf">
-            <h1>Pertemuan 2</h1>
-            <h2>HTML Dasar</h2>
-            <p>Pertemuan dasar HTML membuat paragraf sederhana dengan huruf <i>miring</i>, <b>tebal</b>.</p>
-            
-            <ul>
-                <li>1</li>
-                <li>2</li>
-            </ul>
-            
-            <ol>
-                <li>Satu</li>
-                <li>Dua</li>
-            </ol>
-        </section>
         
-        <section id="table">
+        <section>
             <h2>Tabel</h2>
-            <table border="1">
+            <table>
                 <thead>
                     <tr>
                         <th>Januari</th>
@@ -107,6 +175,10 @@
                     <tr>
                         <td>1</td>
                         <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>4</td>
                     </tr>
                 </tbody>
             </table>
