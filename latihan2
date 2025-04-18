@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Belajar JavaScript & DOM</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 40px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    h1 {
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 16px;
+      margin: 8px 0;
+    }
+
+    .box {
+      width: 120px;
+      height: 120px;
+      background-color: yellow;
+      margin: 20px 0;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .box:hover {
+      transform: scale(1.05);
+    }
+
+    button {
+      padding: 12px 24px;
+      background-color: #27ae60;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #219150;
+    }
+
+    #status {
+      margin-top: 12px;
+      font-weight: bold;
+      font-size: 15px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Belajar JavaScript & DOM</h1>
+  <p>Klik tombol untuk mengganti warna kotak:</p>
+  <div class="box" id="colorBox"></div>
+  <button id="changeBtn">Ganti Warna</button>
+  <p id="status">Warna saat ini: Kuning</p>
+
+  <script>
+    const box = document.getElementById('colorBox');
+    const button = document.getElementById('changeBtn');
+    const statusText = document.getElementById('status');
+    const colors = ['yellow', 'green', 'blue', 'purple', 'tomato'];
+
+    let colorIndex = 0;
+
+    button.addEventListener('click', () => {
+      colorIndex = (colorIndex + 1) % colors.length;
+      const newColor = colors[colorIndex];
+      box.style.backgroundColor = newColor;
+
+      const capitalizedColor = newColor.charAt(0).toUpperCase() + newColor.slice(1);
+      statusText.textContent = `Warna saat ini: ${capitalizedColor}`;
+    });
+  </script>
+</body>
+</html>
