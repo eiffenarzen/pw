@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulasi HTML + CSS dengan JavaScript</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        #dynamicContent { padding: 10px; border: 1px solid #ddd; margin: 10px 0; }
+        .highlight { color: white; background-color: #2980b9; padding: 5px; border-radius: 4px; }
+        .hidden { display: none; }
+        .animate {
+            transition: all 0.3s ease;
+            transform: scale(1.1);
+            background-color: #27ae60 !important;
+            color: #fff !important;
+        }
+        .error {
+            border: 2px solid red;
+        }
+        .success {
+            border: 2px solid green;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="pageTitle">Manipulasi HTML + CSS dengan JavaScript</h1>
+
+    <button onclick="changeContent()">Ubah Konten</button>
+    <button onclick="toggleVisibility()">Tampilkan/Sembunyikan</button>
+    <button onclick="addAnimation()">Animasi Efek</button>
+
+    <div id="dynamicContent" title="Konten dinamis">Konten ini akan diubah secara dinamis.</div>
+
+    <form onsubmit="validateForm(event)">
+        <label for="name">Nama:</label>
+        <input type="text" id="name" name="name" required>
+        <button type="submit">Kirim</button>
+    </form>
+
+    <script>
+        function changeContent() {
+            const content = document.getElementById('dynamicContent');
+            const title = document.getElementById('pageTitle');
+
+            // Mengubah isi konten dan atribut
+            content.innerHTML = '🎉 Konten telah berhasil diperbarui!';
+            content.setAttribute('title', 'Konten sudah diperbarui');
+            title.style.color = '#8e44ad';
+
+            // Menambah gaya dinamis
+            content.style.fontSize = '18px';
+            content.style.fontWeight = 'bold';
+
+            // Toggle highlight
+            content.classList.toggle('highlight');
+        }
+
+        function toggleVisibility() {
+            const content = document.getElementById('dynamicContent');
+            content.classList.toggle('hidden');
+        }
+
+        function addAnimation() {
+            const content = document.getElementById('dynamicContent');
+
+            content.classList.add('animate');
+
+            // Hapus efek animasi setelah 500ms agar bisa digunakan ulang
+            setTimeout(() => {
+                content.classList.remove('animate');
+            }, 500);
+        }
+
+        function validateForm(event) {
+            event.preventDefault();
+            const nameInput = document.getElementById('name');
+            const name = nameInput.value.trim();
+
+            if (name === '') {
+                alert('❌ Nama tidak boleh kosong!');
+                nameInput.classList.add('error');
+                nameInput.classList.remove('success');
+            } else {
+                alert('✅ Formulir berhasil dikirim!');
+                nameInput.classList.remove('error');
+                nameInput.classList.add('success');
+
+                // Reset field dan tampilkan konfirmasi
+                nameInput.value = '';
+            }
+        }
+    </script>
+
+</body>
+</html>
