@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pertemuan 2 HTML Dasar</title>
+</head>
+<body>
+    <header>
+        <h1><a href="https://ipwija.ac.id">Home</a></h1>
+    </header>
+    
+    <main id="main" class="main">
+        <p>Hi</p>
+        
+        <section>
+            <h2>Halo world</h2>
+        </section>
+        
+        <section id="gambar">
+            <img src="https://i.pinimg.com/736x/5f/a3/37/5fa337ca7e25a852f0cad07db0904402.jpg" alt="Gambar" height="200" width="200">
+        </section>
+        
+        <section>
+            <h2>Login</h2>
+            <form>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" placeholder="Masukkan username">
+                <br>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Masukkan password">
+                <br>
+                <label for="warna">Pilih Warna:</label>
+                <input type="color" id="warna" name="warna">
+                <br>
+                <label for="dropdown">Pilihan Dropdown:</label>
+                <select id="dropdown" name="dropdown">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                </select>
+                <br>
+                <input type="reset" value="Cancel">
+                <button type="submit">Login</button>
+            </form>
+        </section>
+        
+        <section>
+            <h2>Form Kontak</h2>
+            <form>
+                <label for="nama">Nama:</label>
+                <input type="text" id="nama" name="nama" placeholder="Masukkan nama">
+                <br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Masukkan email">
+                <br>
+                <label for="tanggal">Tanggal Lahir:</label>
+                <input type="date" id="tanggal" name="tanggal">
+                <br>
+                <label for="file">Unggah File:</label>
+                <input type="file" id="file" name="file">
+                <br>
+                <label>Jenis Kelamin:</label>
+                <input type="radio" id="laki" name="gender" value="Laki-laki">
+                <label for="laki">Laki-laki</label>
+                <input type="radio" id="perempuan" name="gender" value="Perempuan">
+                <label for="perempuan">Perempuan</label>
+                <br>
+                <label>
+                    <input type="checkbox" id="setuju" name="setuju" value="Ya">
+                    Saya setuju dengan syarat dan ketentuan
+                </label>
+                <br>
+                <label for="search">Cari:</label>
+                <input type="search" id="search" name="search" placeholder="Cari sesuatu...">
+                <br>
+                <label for="pesan">Pesan:</label>
+                <textarea id="pesan" name="pesan" rows="4" cols="30" placeholder="Tulis pesan Anda"></textarea>
+                <br>
+                <button type="submit">Kirim</button>
+            </form>
+        </section>
+
+        <section id="paragraf">
+            <h1>Pertemuan 2</h1>
+            <h2>HTML Dasar</h2>
+            <p>Pertemuan dasar HTML membuat paragraf sederhana dengan huruf <i>miring</i>, <b>tebal</b>.</p>
+            
+            <ul>
+                <li>1</li>
+                <li>2</li>
+            </ul>
+            
+            <ol>
+                <li>Satu</li>
+                <li>Dua</li>
+            </ol>
+        </section>
+        
+        <section id="table">
+            <h2>Tabel</h2>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Januari</th>
+                        <th>Februari</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025</p>
+    </footer>
+</body>
+</html>
