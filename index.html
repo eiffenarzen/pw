@@ -3,22 +3,123 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Wawan Sismadi</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Eiffen Arjen</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #1c1c1c;
+      background-color: #f3f2ef;
+    }
+
+    h1, h2, h3 {
+      font-weight: 600;
+    }
+
+    a {
+      color: #0a66c2;
+      text-decoration: none;
+    }
+
+    .profile-container {
+      max-width: 700px;
+      margin: 10px auto;
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      position: relative;
+    }
+
+    .header-bg {
+      height: 200px;
+      background-image: url('bg.png');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .profile-photo-wrapper {
+      position: absolute;
+      top: 130px;
+      left: 30px;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid white;
+      box-shadow: 0 0 6px rgba(0,0,0,0.2);
+    }
+
+    .profile-photo-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .header-text {
+      margin-top: 40px;
+      padding: 30px 30px 10px 30px;
+    }
+
+    .header-text h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .header-text .subtitle {
+      color: #666;
+      margin: 5px 0;
+    }
+
+    .header-text a {
+      color: #0073b1;
+      text-decoration: none;
+    }
+
+    .action-buttons {
+      padding: 0 30px 20px 30px;
+    }
+
+    .action-buttons button {
+      background-color: #0a66c2;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+
+    .content-card {
+      margin: 0 30px 20px 30px;
+      padding: 20px;
+      background: #fafafa;
+      border-radius: 10px;
+    }
+
+    .content-card h2, .content-card h3 {
+      margin-top: 0;
+    }
+
+    .content-card ul {
+      padding-left: 20px;
+    }
+  </style>
 </head>
 <body>
   <div class="profile-container">
     <div class="header-bg"></div>
 
     <div class="profile-photo-wrapper">
-      <img src="profile.png" alt="profile" class="profile-photo" />
+      <img src="https://i.pinimg.com/736x/40/bb/85/40bb851a7eda5532fcd4b6f63f571fdb.jpg" alt="profile" class="profile-photo" />
     </div>
 
     <div class="header-text">
-      <h1>Wawan Sismadi</h1>
+      <h1>Eiffen Arjen Aryanto</h1>
       <p class="subtitle">He/Him • Web Developer</p>
-      <p>Jakarta, Indonesia • <a href="https://wawan.sismadi.com">wawan.sismadi.com</a></p>
-      <p><strong>Sismadi Langit Solusi</strong> — Universitas Ahmad Dahlan</p>
+      <p>Bogor, Indonesia • <a href="https://www.roblox.com/id/users/8425079655/profile">eiffenarzen.com</a></p>
+      <p><strong>zennsiposer</strong> — Universitas Ipwija</p>
     </div>
 
     <div class="action-buttons">
@@ -32,26 +133,23 @@
     <div class="content-card">
       <h3>Sosial Media <small></small></h3>
       <ul>
-        <li><strong>linkedin :</strong> http://linkedin.com/in/sismadi </li>
-        <li><strong>credly :</strong> https://www.credly.com/users/wawan-sismadi</li>
+        <li><strong>Instagram : </strong> : <a href="https://www.instagram.com/eiffenarzen_?igsh=a2ZwaWFweDJ2OXMx">Instagram.com</a></li>
+        <li><strong>Github : </strong> : <a href="https://github.com/eiffenarzen">Github.com</a></li>
       </ul>
     </div>
   </div>
 
   <script type="module">
-    // Import Supabase client dari CDN
     import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
 
     const SUPABASE_URL = 'https://vaasgcsledcnhvwjvqzt.supabase.co'
     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZhYXNnY3NsZWRjbmh2d2p2cXp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDcxMDgzMTAsImV4cCI6MjA2MjY4NDMxMH0.b_0KpgKKli-TCPQUEd5ClnW3pR7QCjIO-6ggi0woNJA'
 
     const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
-
     const content = document.getElementById('content')
 
-    // Fungsi load data ke tabel
     async function loadData() {
-      const { data, error } = await supabase.from('web').select('*').order('id')
+      const { data, error } = await supabase.from('web1').select('*').order('id')
       if (error) {
         alert('Error loading data: ' + error.message)
         return
@@ -69,7 +167,6 @@
       content.innerHTML = out
     }
 
-    // Load data saat halaman siap
     window.addEventListener('DOMContentLoaded', loadData)
   </script>
 </body>
