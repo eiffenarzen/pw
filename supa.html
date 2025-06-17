@@ -3,8 +3,116 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Wawan Sismadi</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Eiffen</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f6f9;
+      color: #333;
+    }
+
+    .profile-container {
+      max-width: 800px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .header-bg {
+      height: 120px;
+      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      border-radius: 12px 12px 0 0;
+    }
+
+    .profile-photo-wrapper {
+      margin-top: -60px;
+    }
+
+    .profile-photo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 5px solid white;
+      object-fit: cover;
+    }
+
+    .header-text h1 {
+      margin: 15px 0 5px;
+      font-size: 28px;
+      color: #333;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      color: #777;
+    }
+
+    .header-text a {
+      color: #2575fc;
+      text-decoration: none;
+    }
+
+    .action-buttons {
+      margin: 20px 0;
+    }
+
+    .action-buttons input,
+    .action-buttons button {
+      margin: 5px;
+      padding: 10px 15px;
+      font-size: 14px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      outline: none;
+    }
+
+    .action-buttons input {
+      width: 160px;
+    }
+
+    .action-buttons button {
+      background: #2575fc;
+      color: white;
+      cursor: pointer;
+      border: none;
+      transition: background 0.3s ease;
+    }
+
+    .action-buttons button:hover {
+      background: #1a5ed0;
+    }
+
+    .content-card {
+      background: #fafafa;
+      margin: 20px auto;
+      padding: 20px;
+      border-left: 5px solid #2575fc;
+      border-radius: 8px;
+      text-align: left;
+    }
+
+    .content-card h2 {
+      margin-top: 0;
+      color: #2575fc;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    ul li {
+      padding: 5px 0;
+    }
+
+    ul a {
+      color: #2575fc;
+    }
+  </style>
 </head>
 <body>
 <div class="profile-container">
@@ -15,14 +123,13 @@
   </div>
 
   <div class="header-text">
-    <h1>Wawan Sismadi</h1>
+    <h1>Eiffen</h1>
     <p class="subtitle">He/Him • Web Developer</p>
-    <p>Jakarta, Indonesia • <a href="https://wawan.sismadi.com">wawan.sismadi.com</a></p>
+    <p>Jakarta, Indonesia • <a href="https://eiffen.dev">eiffen.dev</a></p>
     <p><strong>Sismadi Langit Solusi</strong> — Universitas Ahmad Dahlan</p>
   </div>
 
   <div class="action-buttons">
-    <!-- Form login -->
     <input type="email" id="email" placeholder="Email" />
     <input type="password" id="password" placeholder="Password" />
     <button id="loginBtn">Login</button>
@@ -34,24 +141,21 @@
   <div class="content-card">
     <h3>Sosial Media</h3>
     <ul>
-      <li><strong>LinkedIn :</strong> <a href="http://linkedin.com/in/sismadi" target="_blank">linkedin.com/in/sismadi</a></li>
-      <li><strong>Credly :</strong> <a href="https://www.credly.com/users/wawan-sismadi" target="_blank">credly.com/users/wawan-sismadi</a></li>
+      <li><strong>LinkedIn:</strong> <a href="http://linkedin.com/in/eiffen" target="_blank">linkedin.com/in/eiffen</a></li>
+      <li><strong>Credly:</strong> <a href="https://www.credly.com/users/eiffen" target="_blank">credly.com/users/eiffen</a></li>
     </ul>
   </div>
 </div>
 
-<!-- Script Supabase -->
 <script type="module">
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
 
-// Konfigurasi Supabase
 const SUPABASE_URL = 'https://vaasgcsledcnhvwjvqzt.supabase.co'
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZhYXNnY3NsZWRjbmh2d2p2cXp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDcxMDgzMTAsImV4cCI6MjA2MjY4NDMxMH0.b_0KpgKKli-TCPQUEd5ClnW3pR7QCjIO-6ggi0woNJA'
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
 const content = document.getElementById('content')
 
-// Fungsi login
 async function login() {
   const email = document.getElementById('email').value
   const password = document.getElementById('password').value
@@ -71,13 +175,11 @@ async function login() {
   loadData()
 }
 
-// Fungsi logout
 async function logout() {
   await supabase.auth.signOut()
   content.innerHTML = '<p>Logout berhasil.</p>'
 }
 
-// Fungsi untuk menampilkan data dari Supabase
 async function loadData() {
   const { data: { user }, error: userError } = await supabase.auth.getUser()
 
@@ -88,10 +190,7 @@ async function loadData() {
 
   content.innerHTML = '<p>Memuat data...</p>'
 
-  const { data, error } = await supabase
-    .from('web3')
-    .select('*')
-    .order('id')
+  const { data, error } = await supabase.from('web3').select('*').order('id')
 
   if (error) {
     alert('Gagal memuat data: ' + error.message)
@@ -116,11 +215,9 @@ async function loadData() {
   content.innerHTML = out
 }
 
-// Event listener
 document.getElementById('loginBtn').addEventListener('click', login)
 document.getElementById('logoutBtn').addEventListener('click', logout)
 
-// Cek status login saat halaman dibuka
 window.addEventListener('DOMContentLoaded', async () => {
   const { data: { user } } = await supabase.auth.getUser()
   if (user) loadData()
