@@ -190,7 +190,7 @@ async function loadData() {
 
   content.innerHTML = '<p>Memuat data...</p>'
 
-  const { data, error } = await supabase.from('web3').select('*').order('id')
+  const { data, error } = await supabase.from('web1').select('*').order('id')
 
   if (error) {
     alert('Gagal memuat data: ' + error.message)
