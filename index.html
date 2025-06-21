@@ -81,6 +81,7 @@
       justify-content: center;
       gap: 10px;
       margin: 20px;
+      flex-wrap: wrap;
     }
 
     .action-buttons button {
@@ -136,6 +137,32 @@
       padding-bottom: 10px;
     }
 
+    #loginForm {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin: 10px auto;
+      max-width: 250px;
+    }
+
+    #loginForm input {
+      width: 100%;
+      padding: 8px;
+      border-radius: 6px;
+      border: none;
+    }
+
+    #loginForm button {
+      width: 100%;
+      padding: 8px;
+      border: none;
+      border-radius: 6px;
+      background: #00ffee40;
+      color: #000;
+      cursor: pointer;
+    }
+
     @media screen and (max-width: 600px) {
       .profile-container {
         margin: 20px;
@@ -145,6 +172,14 @@
         flex-direction: column;
       }
     }
+
+    .logout-message {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #00ffee;
+    }
+
   </style>
 </head>
 <body>
@@ -167,6 +202,13 @@
     <button id="logoutBtn">Logout</button>
   </div>
 
+  <!-- Form Login -->
+  <form id="loginForm">
+    <input type="email" id="emailInput" placeholder="Email" required />
+    <input type="password" id="passwordInput" placeholder="Password" required />
+    <button type="submit">Login</button>
+  </form>
+
   <div id="content"></div>
 
   <div class="content-card">
@@ -187,23 +229,33 @@ const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
 const content = document.getElementById('content')
 
-async function login() {
-  const { data, error } = await supabase.auth.signInWithPassword({
-    email: 'user@example.com',
-    password: 'password123'
-  })
+// Tampilkan atau sembunyikan form login
+document.getElementById('loginBtn').addEventListener('click', () => {
+  const form = document.getElementById('loginForm')
+  form.style.display = form.style.display === 'none' ? 'flex' : 'none'
+})
+
+document.getElementById('logoutBtn').addEventListener('click', logout)
+
+document.getElementById('loginForm').addEventListener('submit', async (e) => {
+  e.preventDefault()
+  const email = document.getElementById('emailInput').value
+  const password = document.getElementById('passwordInput').value
+
+  const { data, error } = await supabase.auth.signInWithPassword({ email, password })
 
   if (error) {
     alert('Login gagal: ' + error.message)
     return
   }
 
+  document.getElementById('loginForm').style.display = 'none'
   loadData()
-}
+})
 
 async function logout() {
   await supabase.auth.signOut()
-  content.innerHTML = '<p>Logout berhasil.</p>'
+  content.innerHTML = '<div class="logout-message">Logout berhasil.</div>'
 }
 
 async function loadData() {
@@ -238,9 +290,6 @@ async function loadData() {
 
   content.innerHTML = out
 }
-
-document.getElementById('loginBtn').addEventListener('click', login)
-document.getElementById('logoutBtn').addEventListener('click', logout)
 
 window.addEventListener('DOMContentLoaded', async () => {
   const { data: { user } } = await supabase.auth.getUser()
