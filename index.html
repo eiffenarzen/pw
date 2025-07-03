@@ -5,10 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Eiffen Arjen</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
+    * { box-sizing: border-box; }
     body {
       margin: 0;
       padding: 0;
@@ -16,12 +13,7 @@
       background: linear-gradient(to bottom right, #0f0f0f, #1a1a1a);
       color: #f0f0f0;
     }
-
-    a {
-      color: #00ffee;
-      text-decoration: none;
-    }
-
+    a { color: #00ffee; text-decoration: none; }
     .profile-container {
       max-width: 800px;
       margin: 40px auto;
@@ -31,17 +23,8 @@
       overflow: hidden;
       border: 1px solid #2e2e2e;
     }
-
-    .header-bg {
-      height: 140px;
-      background: linear-gradient(135deg, #111111, #292929);
-    }
-
-    .profile-photo-wrapper {
-      text-align: center;
-      margin-top: -70px;
-    }
-
+    .header-bg { height: 140px; background: linear-gradient(135deg, #111111, #292929); }
+    .profile-photo-wrapper { text-align: center; margin-top: -70px; }
     .profile-photo {
       width: 110px;
       height: 110px;
@@ -50,32 +33,10 @@
       box-shadow: 0 0 12px #00ffee77;
       object-fit: cover;
     }
-
-    .header-text {
-      text-align: center;
-      padding: 20px;
-    }
-
-    .header-text h1 {
-      margin: 0;
-      font-size: 24px;
-      color: #ffffff;
-      letter-spacing: 1px;
-    }
-
-    .subtitle {
-      font-size: 14px;
-      color: #aaaaaa;
-      font-style: italic;
-      margin: 4px 0;
-    }
-
-    .header-text p {
-      font-size: 13px;
-      color: #dddddd;
-      margin: 5px 0;
-    }
-
+    .header-text { text-align: center; padding: 20px; }
+    .header-text h1 { margin: 0; font-size: 24px; color: #ffffff; letter-spacing: 1px; }
+    .subtitle { font-size: 14px; color: #aaaaaa; font-style: italic; margin: 4px 0; }
+    .header-text p { font-size: 13px; color: #dddddd; margin: 5px 0; }
     .action-buttons {
       display: flex;
       justify-content: center;
@@ -83,7 +44,6 @@
       margin: 20px;
       flex-wrap: wrap;
     }
-
     .action-buttons button {
       padding: 10px 18px;
       font-size: 13px;
@@ -95,12 +55,7 @@
       transition: all 0.3s ease;
       backdrop-filter: blur(2px);
     }
-
-    .action-buttons button:hover {
-      background: #00ffee40;
-      color: #000;
-    }
-
+    .action-buttons button:hover { background: #00ffee40; color: #000; }
     .content-card {
       background: rgba(40, 40, 40, 0.85);
       margin: 18px;
@@ -109,51 +64,27 @@
       border: 1px solid #333;
       box-shadow: 0 0 10px rgba(0, 255, 255, 0.07);
     }
-
-    .content-card h2,
-    .content-card h3 {
+    .content-card h2, .content-card h3 {
       margin-top: 0;
       font-size: 17px;
       color: #00ffee;
     }
-
-    .content-card p,
-    .content-card li {
+    .content-card p, .content-card li {
       font-size: 13px;
       color: #dddddd;
       line-height: 1.6;
     }
-
-    .content-card ul {
-      padding-left: 16px;
-    }
-
-    .content-card li {
-      list-style: square;
-    }
-
-    #content {
-      margin-top: 10px;
-      padding-bottom: 10px;
-    }
-
-    #loginForm {
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-      margin: 10px auto;
-      max-width: 250px;
-    }
-
-    #loginForm input {
+    .content-card ul { padding-left: 16px; }
+    .content-card li { list-style: square; }
+    #content { margin-top: 10px; padding-bottom: 10px; }
+    #loginForm, #crudForm, #adminLoginForm { display: none; flex-direction: column; align-items: center; gap: 10px; margin: 10px auto; max-width: 250px; }
+    #loginForm input, #crudForm input, #crudForm textarea, #adminLoginForm input {
       width: 100%;
       padding: 8px;
       border-radius: 6px;
       border: none;
     }
-
-    #loginForm button {
+    #loginForm button, #crudForm button, #adminLoginForm button {
       width: 100%;
       padding: 8px;
       border: none;
@@ -162,51 +93,53 @@
       color: #000;
       cursor: pointer;
     }
-
+    table { border-collapse: collapse; width: 100%; margin-top: 15px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    tr:hover { background-color: #f9f9f9; cursor: pointer; }
     @media screen and (max-width: 600px) {
-      .profile-container {
-        margin: 20px;
-      }
-
-      .action-buttons {
-        flex-direction: column;
-      }
+      .profile-container { margin: 20px; }
+      .action-buttons { flex-direction: column; }
     }
-
-    .logout-message {
-      text-align: center;
-      padding: 20px;
-      font-size: 14px;
-      color: #00ffee;
-    }
-
+    .logout-message { text-align: center; padding: 20px; font-size: 14px; color: #00ffee; }
   </style>
 </head>
 <body>
 <div class="profile-container">
   <div class="header-bg"></div>
-
   <div class="profile-photo-wrapper">
     <img src="https://i.pinimg.com/736x/40/bb/85/40bb851a7eda5532fcd4b6f63f571fdb.jpg" alt="profile" class="profile-photo" />
   </div>
-
   <div class="header-text">
     <h1>Eiffen Arjen Aryanto</h1>
     <p class="subtitle">He/Him • Web Developer</p>
     <p>Bogor, Indonesia • <a href="https://www.roblox.com/id/users/8425079655/profile">Kyzenn666(roblox)</a></p>
     <p><strong>zennsiposer</strong> — Universitas Ipwija</p>
   </div>
-
   <div class="action-buttons">
     <button id="loginBtn">Login untuk akses data</button>
+    <button id="adminBtn">Login Admin</button>
     <button id="logoutBtn">Logout</button>
   </div>
 
-  <!-- Form Login -->
   <form id="loginForm">
     <input type="email" id="emailInput" placeholder="Email" required />
     <input type="password" id="passwordInput" placeholder="Password" required />
     <button type="submit">Login</button>
+  </form>
+
+  <form id="adminLoginForm">
+    <input type="email" id="adminEmail" placeholder="Admin Email" required />
+    <input type="password" id="adminPassword" placeholder="Admin Password" required />
+    <button type="submit">Login Admin</button>
+  </form>
+
+  <form id="crudForm">
+    <input type="hidden" id="recordId" />
+    <input type="text" id="nameInput" placeholder="Judul" required />
+    <textarea id="isiInput" placeholder="Isi" required></textarea>
+    <button type="submit">Simpan</button>
+    <button type="button" id="deleteBtn">Hapus</button>
+    <button type="button" id="cancelBtn">Batal</button>
   </form>
 
   <div id="content"></div>
@@ -214,40 +147,63 @@
   <div class="content-card">
     <h3>Sosial Media</h3>
     <ul>
-      <li><strong>Instagram : </strong> : <a href="https://www.instagram.com/eiffenarzen_?igsh=a2ZwaWFweDJ2OXMx">Instagram.com</a></li>
-      <li><strong>Github : </strong> : <a href="https://github.com/eiffenarzen">Github.com</a></li>
+      <li><strong>Instagram:</strong> <a href="https://www.instagram.com/eiffenarzen_?igsh=a2ZwaWFweDJ2OXMx">Instagram.com</a></li>
+      <li><strong>Github:</strong> <a href="https://github.com/eiffenarzen">Github.com</a></li>
     </ul>
   </div>
 </div>
 
+<!-- Tambahan di dalam <script type="module"> -->
 <script type="module">
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
 
 const SUPABASE_URL = 'https://vaasgcsledcnhvwjvqzt.supabase.co'
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZhYXNnY3NsZWRjbmh2d2p2cXp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDcxMDgzMTAsImV4cCI6MjA2MjY4NDMxMH0.b_0KpgKKli-TCPQUEd5ClnW3pR7QCjIO-6ggi0woNJA'
-
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
-const content = document.getElementById('content')
 
-// Tampilkan atau sembunyikan form login
+const content = document.getElementById('content')
+const crudForm = document.getElementById('crudForm')
+
+// Daftar email yang diizinkan login sebagai admin
+const ADMIN_EMAILS = ['admin@gmail.com']
+
 document.getElementById('loginBtn').addEventListener('click', () => {
   const form = document.getElementById('loginForm')
   form.style.display = form.style.display === 'none' ? 'flex' : 'none'
 })
 
-document.getElementById('logoutBtn').addEventListener('click', logout)
+document.getElementById('adminBtn').addEventListener('click', () => {
+  const form = document.getElementById('adminLoginForm')
+  form.style.display = form.style.display === 'none' ? 'flex' : 'none'
+})
+
+document.getElementById('adminLoginForm').addEventListener('submit', async (e) => {
+  e.preventDefault()
+  const email = document.getElementById('adminEmail').value
+  const password = document.getElementById('adminPassword').value
+
+  if (!ADMIN_EMAILS.includes(email)) {
+    return alert('Email ini bukan admin.')
+  }
+
+  const { data, error } = await supabase.auth.signInWithPassword({ email, password })
+  if (error) return alert('Login admin gagal: ' + error.message)
+
+  document.getElementById('adminLoginForm').style.display = 'none'
+  loadAdmin()
+})
 
 document.getElementById('loginForm').addEventListener('submit', async (e) => {
   e.preventDefault()
   const email = document.getElementById('emailInput').value
   const password = document.getElementById('passwordInput').value
 
-  const { data, error } = await supabase.auth.signInWithPassword({ email, password })
-
-  if (error) {
-    alert('Login gagal: ' + error.message)
-    return
+  if (ADMIN_EMAILS.includes(email)) {
+    return alert('Email ini hanya bisa login sebagai admin.')
   }
+
+  const { data, error } = await supabase.auth.signInWithPassword({ email, password })
+  if (error) return alert('Login gagal: ' + error.message)
 
   document.getElementById('loginForm').style.display = 'none'
   loadData()
@@ -256,46 +212,76 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
 async function logout() {
   await supabase.auth.signOut()
   content.innerHTML = '<div class="logout-message">Logout berhasil.</div>'
+  crudForm.style.display = 'none'
 }
 
+document.getElementById('logoutBtn').addEventListener('click', async () => {
+  await logout();
+})
+
 async function loadData() {
-  const {
-    data: { user }
-  } = await supabase.auth.getUser()
-
-  if (!user) {
-    content.innerHTML = '<p>Silakan login untuk melihat data.</p>'
-    return
-  }
-
-  const { data, error } = await supabase
-    .from('web1')
-    .select('*')
-    .order('id')
-
-  if (error) {
-    alert('Error loading data: ' + error.message)
-    return
-  }
-
+  const { data: { user } } = await supabase.auth.getUser()
+  if (!user) return content.innerHTML = '<p>Silakan login untuk melihat data.</p>'
+  const { data, error } = await supabase.from('web1').select('*').order('id')
+  if (error) return alert('Error loading data: ' + error.message)
   let out = ''
   data.forEach(row => {
-    out += `
-      <div class="content-card">
-        <h2>${row.judul}</h2>
-        <p>${row.isi}</p>
-      </div>
-    `
+    out += `<div class="content-card"><h2>${row.judul}</h2><p>${row.isi}</p></div>`
   })
-
   content.innerHTML = out
 }
 
+async function loadAdmin() {
+  const { data, error } = await supabase.from('web1').select('*').order('id')
+  if (error) return alert('Error loading data: ' + error.message)
+  let out = '<table><thead><tr><th>ID</th><th>Judul</th><th>Isi</th></tr></thead><tbody>'
+  data.forEach(row => {
+    out += `<tr onclick="showForm(${row.id}, '${row.judul}', '${row.isi.replace(/'/g, "\\'")}')"><td>${row.id}</td><td>${row.judul}</td><td>${row.isi}</td></tr>`
+  })
+  out += '</tbody></table>'
+  content.innerHTML = out
+  crudForm.style.display = 'block'
+}
+
+window.showForm = (id, judul, isi) => {
+  document.getElementById('recordId').value = id
+  document.getElementById('nameInput').value = judul
+  document.getElementById('isiInput').value = isi
+  crudForm.style.display = 'block'
+}
+
+document.getElementById('crudForm').addEventListener('submit', async (e) => {
+  e.preventDefault()
+  const id = document.getElementById('recordId').value
+  const judul = document.getElementById('nameInput').value.trim()
+  const isi = document.getElementById('isiInput').value.trim()
+  if (!judul || !isi) return alert('Wajib diisi!')
+  const req = id ? supabase.from('web1').update({ judul, isi }).eq('id', id) : supabase.from('web1').insert([{ judul, isi }])
+  const { error } = await req
+  if (error) return alert('Gagal menyimpan: ' + error.message)
+  crudForm.style.display = 'none'
+  loadAdmin()
+})
+
+document.getElementById('deleteBtn').addEventListener('click', async () => {
+  const id = document.getElementById('recordId').value
+  if (!id || !confirm('Yakin ingin menghapus?')) return
+  const { error } = await supabase.from('web1').delete().eq('id', id)
+  if (error) return alert('Gagal hapus: ' + error.message)
+  crudForm.style.display = 'none'
+  loadAdmin()
+})
+
+document.getElementById('cancelBtn').addEventListener('click', () => {
+  crudForm.style.display = 'none'
+})
+
 window.addEventListener('DOMContentLoaded', async () => {
   const { data: { user } } = await supabase.auth.getUser()
-  if (user) loadData()
+  if (user && !ADMIN_EMAILS.includes(user.email)) {
+    loadData()
+  }
 })
 </script>
-
 </body>
 </html>
